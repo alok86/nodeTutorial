@@ -1,4 +1,4 @@
-import cal from './math-esm.mjs';
+import * as cal from './math-esm.mjs';
 const { add, subtract } = cal;
 console.log(add(3, 5));
 console.log(subtract(5, 3));
