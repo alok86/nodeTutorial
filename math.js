@@ -1,14 +1,7 @@
-const add = (a, b) => {
+module.exports.add = (a, b) => {
   return a + b;
 };
 
-const subtract = (a, b) => {
+module.exports.subtract = (a, b) => {
   return a - b;
-};
-module.exports = {
-  add: add,
-  subtract: subtract,
-  //   or
-  //   add ,
-  //   subtract only
 };
