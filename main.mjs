@@ -1,3 +1,4 @@
-import add from './math-esm.mjs';
+import cal from './math-esm.mjs';
 
-console.log(add(3, 5));
+console.log(cal.add(3, 5));
+console.log(cal.subtract(5, 3));
