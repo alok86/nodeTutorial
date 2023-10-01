@@ -1,7 +1,10 @@
-const math = require('./math');
+const data = require('./data.json');
 
-const { add, subtract } = math;
-console.log(add(3, 8));
-console.log(subtract(8, 3));
-// this line just to make visible in git version
-console.log('no change here');
+console.log(data);
+console.log(data.name);
+console.log(data.address.city);
+console.log(data.address.street);
+
+// you can ignore .json extension while importing it
+// wath mode is node 18 feature
+// to start write on console node --watch <file name>
