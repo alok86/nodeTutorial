@@ -1,29 +1,31 @@
-const path = require('path');
+function greet(name) {
+  console.log(`hello ${name}`);
+}
 
-// console.log(__filename);
-// console.log(__dirname);
+function greetToMe(greetFn) {
+  const name = 'developer';
+  greetFn(name);
+  //and above function call is call back function
+}
+// above function is higher order function
+// because it is calling to another function
+greetToMe(greet);
 
-// console.log(path.basename(__filename));
-// console.log(path.basename(__dirname));
+// any function call to another function called
+// call back function
 
-// console.log(path.extname(__filename));
-// console.log(path.extname(__dirname));
+// Synchronous call back function call immeditately when
+// control goes to higher order function
 
-// console.log(path.parse(__filename));
+// Asynchronus call back
 
-// console.log(path.format(path.parse(__filename)));
-// console.log(path.isAbsolute(__filename));
+// A Call back that is often used to continue or resume
+// code execution after an asynchronous operation has completed
 
-// console.log(path.isAbsolute('./data.json'));
-// console.log(path.join('folder1', 'folder 2', 'index.html'));
-// console.log(path.join('/folder1', 'folder 2', 'index.html'));
-// console.log(path.join('folder1', '//folder 2', 'index.html'));
-// console.log(path.join('/folder1', '//folder 2', '../index.html'));
-// console.log(path.join(__dirname, 'data.json'));
+// callback are used to delay the execution of a function until
+// a particulat time of event has occurred
 
-console.log(path.resolve('folder1', 'folder 2', 'index.html'));
-console.log(path.resolve('folder1', 'folder 2', 'index.html'));
-console.log(path.resolve('/folder1', 'folder 2', 'index.html'));
-console.log(path.resolve('folder1', '//folder 2', 'index.html'));
-console.log(path.resolve('/folder1', '//folder 2', '../index.html'));
-console.log(path.resolve(__dirname, 'data.json'));
+// in node.js have an asynchronous to prevent
+// blocking of execution
+// ex - reading data from file , fetching data from
+// a database or hadling a network request
