@@ -1,10 +1,17 @@
-const data = require('./data.json');
+const path = require('node:path');
 
-console.log(data);
-console.log(data.name);
-console.log(data.address.city);
-console.log(data.address.street);
+console.log(__filename);
+console.log(__dirname);
 
-// you can ignore .json extension while importing it
-// wath mode is node 18 feature
-// to start write on console node --watch <file name>
+console.log(path.basename(__filename));
+console.log(path.basename(__dirname));
+
+console.log(path.extname(__filename));
+console.log(path.extname(__dirname));
+
+console.log(path.parse(__filename));
+
+console.log(path.format(path.parse(__filename)));
+console.log(path.isAbsolute(__filename));
+
+console.log(path.isAbsolute('./data.json'));
