@@ -1,17 +1,27 @@
-const EventEmmiter = require('node:events');
+const PizzaShop = require('./pizza-shop');
 
-const emmiter = new EventEmmiter();
+const pizza = new PizzaShop();
 
-emmiter.on('order-pizza', (size, topping) => {
-  console.log(`order recived ! baking a ${size} pizza with ${topping}`);
+pizza.on('order', (size, toppings) => {
+  console.log(`Order reciverd ! Baking a ${size} pizza with ${toppings}`);
 });
 
-// you can add multiple listner
+pizza.order('large', 'mushrooms');
+pizza.displayOrderNumber();
+// const EventEmmiter = require('node:events');
 
-emmiter.on('order-pizza', (size) => {
-  if (size === 'large') {
-    console.log('serving complimentary drink');
-  }
-});
+// const emmiter = new EventEmmiter();
 
-emmiter.emit('order-pizza', 'large', 'mushroom');
+// emmiter.on('order-pizza', (size, topping) => {
+//   console.log(`order recived ! baking a ${size} pizza with ${topping}`);
+// });
+
+// // you can add multiple listner
+
+// emmiter.on('order-pizza', (size) => {
+//   if (size === 'large') {
+//     console.log('serving complimentary drink');
+//   }
+// });
+
+// emmiter.emit('order-pizza', 'large', 'mushroom');
