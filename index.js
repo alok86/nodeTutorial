@@ -1,26 +1,42 @@
-const buffer = new Buffer.from('aalok');
+const fs = require('node:fs');
+/**
+ * without encoding it will return the result in
+ * the form of binary data
+ *
+ * functon readFileSync , sync stand for synchronous
+ * it mean no statement will execute utill file read
+ *
+ */
+const file_content = fs.readFileSync('./file.txt', 'utf-8');
+console.log(file_content);
+/**  if error is first argument then it called
+ * error first callback function
+ * this this async way of function calling
+ * pass utf8 as second argument it return
+ * data in humen readable format
+ */
+fs.readFile('./file.txt', 'utf-8', (error, data) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(data);
+  }
+});
 
 /**
- * As buffer has limited memory therefore it
- * will replace aalo from aalok and place Code
- * over there and form Codek
+ * writing file synchronously
  */
-buffer.write('Code');
-
-console.log(buffer.toString());
-/*
- * if we print the buffer  directly it will return the
- * hexadecimal value of each word individually
- * for example out put of following console log
- * will be <Buffer 61 61 6c 6f 6b> which is
- * hexadecimal equivalant of 97,97,108,111,107
+fs.writeFileSync('./greet.txt', 'welcoming you to the wordld of file');
+/**
+ *
+ *  writing file asynchronously
+ * if want to append content in previous content
+ * then add third argument object with property flag:"a"
  */
-console.log(buffer);
-
-/*
- * like the above code following code will also
- * genereate data encoding but in assci equivelent of
- * of chatecter like
- * 97 ,97 ,108 , 111, 107 in data segment
- */
-console.log(buffer.toJSON());
+fs.writeFile('./greet.txt', ' hello students', { flag: 'a' }, (error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('file written');
+  }
+});
